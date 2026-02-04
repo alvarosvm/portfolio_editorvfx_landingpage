@@ -1,0 +1,332 @@
+:root {
+    --bg-color: #0a0a0a;
+    --card-bg: #171717;
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1a1;
+    --accent: #6d28d9;
+    --accent-glow: #8b5cf6;
+    --font-main: 'Outfit', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.75)
+        ),
+        url("img/wp1.png") center / cover no-repeat;
+    z-index: -1;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 70px 20px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 20px rgba(109, 40, 217, 0.6);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 12px 30px;
+    border-radius: 50px;
+    margin-left: 10px;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.btn-full {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.highlight {
+    color: var(--accent-glow);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 0 20px;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.05);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
+}
+
+.badge:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin: 20px 0;
+    font-weight: 700;
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #fff, var(--accent-glow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-text {
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 1.2rem;
+}
+
+.glow-effect {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--accent);
+    filter: blur(150px);
+    opacity: 0.4;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 250px);
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    font-weight: 500;
+}
+
+.item-1 { grid-column: span 2; grid-row: span 2; }
+.item-2 { grid-column: span 2; }
+.item-3 { grid-column: span 1; }
+.item-4 { grid-column: span 1; }
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    border-color: var(--accent);
+    background: rgba(109, 40, 217, 0.05);
+}
+
+.service-card p {
+    color: var(--text-secondary);
+}
+
+.about-text {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.about-list {
+    max-width: 600px;
+    margin: 30px auto;
+    display: grid;
+    gap: 15px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.contact-box {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.contact-desc {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+input, select {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    background: #0a0a0a;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(109, 40, 217, 0.2);
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+
+    body::before {
+        background-position: center top;
+    }
+
+    .nav-links { display: none; }
+    .hero h1 { font-size: 2.5rem; }
+
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .item-1, .item-2, .item-3, .item-4 {
+        grid-column: span 1;
+        height: 250px;
+    }
+}
